@@ -1,15 +1,38 @@
+from tkinter import *
 from ctypes.wintypes import SIZE
 import tkinter as tk
 from tkinter import Frame, Canvas
 from tkinter.filedialog import askopenfile
-from turtle import bgcolor, pd, right
+from turtle import bgcolor, pd, right, width
 from PIL import Image, ImageTk
 from numpy import pad, size
 import pandas as pd
 from V2_InProgress import *
 
-def main_gui():
+def login():
+    rooty=tk.Tk()
+    rooty.title('Data Collection')
+    rooty.geometry('200x100')
+    rooty.columnconfigure(0, weight=1)   # Set weight to row and 
+    rooty.rowconfigure(0, weight=1)  
 
+    Label(text="Username").grid(column=0, row=2)
+    tk.Entry(rooty).grid(column=1, row=2, padx=5,pady=5,ipadx=5)
+    
+    Label(text='Password').grid(column=0, row=5)
+    tk.Entry(rooty).grid(column=1, row=5,padx=5,pady=5,ipadx=5)
+    # Creating button. In this destroy method is passed
+    # as command, so as soon as button 1 is pressed root
+    # window will be destroyed
+    Login = Button(rooty, text ="Login", command = lambda : next_gui(rooty))
+    Login.grid(column=0, row=8,pady = 10,)
+    
+    exit_button = Button(rooty, text="Quit", command = rooty.quit())
+    exit_button.grid(column=1,row=8,pady=10, padx=50)
+
+    # infinite loop
+    rooty.mainloop()
+'''def second_screen():
     root=tk.Tk()
     root.title('Data Collection')
 
@@ -45,6 +68,11 @@ def main_gui():
     quit.grid(column=2, row=3)
 
     root.mainloop()
+'''
 
-if __name__ == '__main__':
-    main_gui()
+
+def next_gui(rooty):
+    rooty.destroy()
+    main_screen()
+
+login()
