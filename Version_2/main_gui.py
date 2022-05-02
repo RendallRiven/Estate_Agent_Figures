@@ -49,7 +49,7 @@ def main_gui_run():
     postcode_input.configure(highlightbackground='black')
     postcode_input.grid(column=2, row = 3)
 
-    right_move_but = Button(root, text="Rightmove", font=("shanti", 10), height=1, width=15, bg='white')
+    right_move_but = Button(root, command=right_move, text="Rightmove", font=("shanti", 10), height=1, width=15, bg='white')
     Disabled = Button(root, text="DISABLED", font=("shanti", 10), height=1, width=15)
 
     right_move_but.grid(row=4, column=2)

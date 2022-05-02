@@ -15,14 +15,7 @@ import sqlite3
 from main_gui import main_gui_run
 from winreg import *
 
-global accounts
-accounts = {"user1": "password1", "user2": "password2"}
-
-
 def validateLogin(username, password):
-    print("username entered :", username.get())
-    print("password entered :", password.get())
-   
     user = username.get()
     pword = password.get()
     
@@ -59,7 +52,7 @@ def login():
     
     passwordlabel = Label(text='Password').grid(column=0, row=5)
     password = StringVar()
-    passwordentry = tk.Entry(rooty, textvariable=password).grid(column=1, row=5,padx=5,pady=5,ipadx=5)
+    passwordentry = tk.Entry(rooty, show='#', textvariable=password).grid(column=1, row=5,padx=5,pady=5,ipadx=5)
 
     validate = partial(validateLogin, username, password)
 
