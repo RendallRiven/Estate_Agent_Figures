@@ -12,8 +12,14 @@ import pandas as pd
 from V2_InProgress import *
 from functools import partial
 import sqlite3
+import customtkinter
 from main_gui import main_gui_run
 from winreg import *
+
+
+customtkinter.set_appearance_mode("System")
+customtkinter.set_default_color_theme("dark-blue")
+
 
 def validateLogin(username, password):
     user = username.get()
@@ -30,36 +36,35 @@ def validateLogin(username, password):
 
 def login():
     global rooty
-    rooty=tk.Tk()
-    rooty.config(background='White')
-    rooty.title('Data Collection')
+    rooty=customtkinter.CTk()
+    rooty.title('Login')
     rooty.iconbitmap(os.getcwd() + "\\Analyte.ico")
     global label
     label = tk.Label(rooty, text="Light Mode on")
     ws = rooty.winfo_screenwidth() # width of the screen
     hs = rooty.winfo_screenheight() # height of the screen
-    w = 230 # width for the Tk root
-    h = 100 # height for the Tk root
+    w = 350 # width for the Tk root
+    h = 150 # height for the Tk root
     x = (ws/2) - (w/2)
     y = (hs/2) - (h/2)
     rooty.geometry('%dx%d+%d+%d' % (w, h, x, y)) #Geometer is used to set where the application will open on the screen
     rooty.columnconfigure(0, weight=1)   # Set weight to row and 
     rooty.rowconfigure(0, weight=1)  
 
-    usernamelabel = Label(text="Username").grid(column=0, row=2)
+    usernamelabel = customtkinter.CTkLabel(text="Username").grid(column=0, row=2)
     username = StringVar()
-    usernameentry = tk.Entry(rooty, textvariable=username).grid(column=1, row=2, padx=5,pady=5,ipadx=5)
+    usernameentry = customtkinter.CTkEntry(rooty, textvariable=username).grid(column=1, row=2, padx=5,pady=5,ipadx=5)
     
-    passwordlabel = Label(text='Password').grid(column=0, row=5)
+    passwordlabel = customtkinter.CTkLabel(text='Password').grid(column=0, row=5)
     password = StringVar()
-    passwordentry = tk.Entry(rooty, show='#', textvariable=password).grid(column=1, row=5,padx=5,pady=5,ipadx=5)
+    passwordentry = customtkinter.CTkEntry(rooty, show='#', textvariable=password).grid(column=1, row=5,padx=5,pady=5,ipadx=5)
 
     validate = partial(validateLogin, username, password)
 
-    Login = Button(rooty, text ="Login", command = validate) 
+    Login = customtkinter.CTkButton(rooty, text ="Login", command = validate) 
     Login.grid(column=0, row=8,pady = 10,)
     
-    exit_button = Button(rooty, text="Quit", command = rooty.quit)
+    exit_button = customtkinter.CTkButton(rooty, text="Quit", command = rooty.quit)
     exit_button.grid(column=1,row=8,pady=10, padx=50)
 
     rooty.mainloop()
@@ -69,3 +74,4 @@ def next_gui(rooty):
     main_gui_run()
 
 login()
+

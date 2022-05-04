@@ -1,0 +1,37 @@
+1.01 change log:
+
+- Icon added in to replace the feather
+- Login screen created
+- SQLite DB created with users table
+- Hashed input in the login screen for the paassword
+- First draft of main screen   
+- Modules .py file created
+- Add table in DB to output rightmove data into DB
+- Save to xlsx disabled / function no longer called. Can be actived again if required.
+- File>Exit added in
+- Quit button removed
+- Added file>help
+- Added button to download from DB to excel. Opens in file explorer
+- File settings is added but needs enabling
+
+Oustanding:
+
+- Need to fix entry buttons so that they work with selenium download.
+
+Version 1.02 to include:
+
+- To include reporting of datastore
+- To include hash encryption in the SQLite database
+- Configure File>Settings to hardcode URL
+- Version will be compiled for testing
+- GUI updated
+
+Version 1.03 to include:
+
+- SMTP emailing
+- Application to include service to automatically run data mining
+- Automate purplebricks 
+
+Version 1.04 to include: 
+
+- SQL express DB

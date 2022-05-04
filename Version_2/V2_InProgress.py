@@ -118,8 +118,20 @@ def right_move():
         writer = pd.ExcelWriter(Out_path)
         df.to_excel(writer, sheet_name='test', index=False, header=True)
         writer.save()
-        
-    Save_to_xlsx()
+    
+    def save_to_SQL():
+        conn = sqlite3.connect("C:\SQLite\EST_database.db")       
+        df = pd.DataFrame({'Estate_agent': lister_agent, 
+                            'House_location' : lister_address,
+                            'House_type': lister_house_type, 
+                            'Bedrooms' : lister_bedrooms, 
+                            'Price' : lister_price, 
+                            'Added_on' : lister_agent_date_added_5})
+        df.drop_duplicates(subset=None, keep="first", inplace=True) 
+        df.to_sql("House_data", conn,if_exists="replace", index=False)
+         
+    
+    save_to_SQL()
     
 if __name__ == "__main__":
     right_move()
