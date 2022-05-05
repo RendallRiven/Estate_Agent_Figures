@@ -1,3 +1,5 @@
+PROGRAM STOPPED DEVELOPMENT 5/5/2022 TERMS OF USE AGAINST AUTOMATED CRAWLERS
+
 1.01 change log:
 
 - Icon added in to replace the feather
@@ -13,10 +15,15 @@
 - Added file>help
 - Added button to download from DB to excel. Opens in file explorer
 - File settings is added but needs enabling
+- Resolved issue with dynamic URL entry
+- Customtkinter GUI added
+- postcode script written
 
 Oustanding:
 
-- Need to fix entry buttons so that they work with selenium download.
+- Update chrome location to os.cwd()
+- Add in website in DF when downloading into DB
+- Add in postcode used if relevant into DB
 
 Version 1.02 to include:
 
@@ -24,7 +31,6 @@ Version 1.02 to include:
 - To include hash encryption in the SQLite database
 - Configure File>Settings to hardcode URL
 - Version will be compiled for testing
-- GUI updated
 
 Version 1.03 to include:
 

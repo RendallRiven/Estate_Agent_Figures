@@ -75,8 +75,12 @@ def main_gui_run():
     postcode = customtkinter.CTkLabel(root,text='Postcode')
     postcode.grid(column=0, row =3, pady=10)
 
-    postcode_input = customtkinter.CTkEntry(root)
+    global postcode_entry
+    postcode_entry = StringVar()
+    postcode_input = customtkinter.CTkEntry(root, textvariable = postcode_entry)
     postcode_input.grid(column=1, row = 3)
+
+    send_postcode = partial(right_move_postcode, postcode_entry)
 
     right_move_but = customtkinter.CTkButton(root, command=send_url, text="Rightmove")
     right_move_but.grid(row=2, column=2)
