@@ -15,6 +15,7 @@ import sqlite3
 import customtkinter
 from main_gui import main_gui_run
 from winreg import *
+import V2_InProgress
 
 
 customtkinter.set_appearance_mode("System")

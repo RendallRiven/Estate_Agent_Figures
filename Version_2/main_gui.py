@@ -1,6 +1,7 @@
 from ctypes.wintypes import SIZE
+from functools import partial
 import tkinter as tk
-from tkinter import BOTH, INSERT, Button, Frame, Canvas, Menu, Variable
+from tkinter import BOTH, INSERT, Button, Frame, Canvas, Menu, StringVar, Variable
 from tkinter import font
 from tkinter.filedialog import askopenfile
 from turtle import bgcolor, pd, right
@@ -64,8 +65,12 @@ def main_gui_run():
     User_input_url = customtkinter.CTkLabel(root,text='URL')
     User_input_url.grid(column=0, row =2, pady=10)
 
-    User_input_url = customtkinter.CTkEntry(root)
+    global url_entry
+    url_entry = StringVar()
+    User_input_url = customtkinter.CTkEntry(root, textvariable=url_entry)
     User_input_url.grid(column=1, row=2)
+
+    send_url = partial(right_move, url_entry)
 
     postcode = customtkinter.CTkLabel(root,text='Postcode')
     postcode.grid(column=0, row =3, pady=10)
@@ -73,7 +78,7 @@ def main_gui_run():
     postcode_input = customtkinter.CTkEntry(root)
     postcode_input.grid(column=1, row = 3)
 
-    right_move_but = customtkinter.CTkButton(root, command=right_move, text="Rightmove")
+    right_move_but = customtkinter.CTkButton(root, command=send_url, text="Rightmove")
     right_move_but.grid(row=2, column=2)
     Disabled = customtkinter.CTkButton(root, text="DISABLED") 
     Disabled.grid(row=3, column=2)
